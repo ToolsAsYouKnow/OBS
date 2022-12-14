@@ -184,7 +184,7 @@
 #include <stddef.h>
 #include <limits.h>
 #include <signal.h>
-
+#include <stdint.h>
 /*
  *  For gcc with _STDINT_H, fill in the PRINTF_INT*_MODIFIER macros, and
  *  do nothing else.  On the Mac OS X version of gcc this is _STDINT_H_.
@@ -377,7 +377,6 @@
 #endif
 #ifndef uint32_t
 #if (ULONG_MAX == UINT32_MAX) || defined (S_SPLINT_S)
-  typedef unsigned long uint32_t;
 # define UINT32_C(v) v ## UL
 # ifndef PRINTF_INT32_MODIFIER
 #  define PRINTF_INT32_MODIFIER "l"
@@ -407,7 +406,6 @@
 #endif
 #ifndef int32_t
 #if (LONG_MAX == INT32_MAX) || defined (S_SPLINT_S)
-  typedef signed long int32_t;
 # define INT32_C(v) v ## L
 # ifndef PRINTF_INT32_MODIFIER
 #  define PRINTF_INT32_MODIFIER "l"
@@ -616,12 +614,6 @@
  *  stdint.h.
  */
 
-typedef   int_least8_t   int_fast8_t;
-typedef  uint_least8_t  uint_fast8_t;
-typedef  int_least16_t  int_fast16_t;
-typedef uint_least16_t uint_fast16_t;
-typedef  int_least32_t  int_fast32_t;
-typedef uint_least32_t uint_fast32_t;
 #define  UINT_FAST8_MAX  UINT_LEAST8_MAX
 #define   INT_FAST8_MAX   INT_LEAST8_MAX
 #define UINT_FAST16_MAX UINT_LEAST16_MAX
